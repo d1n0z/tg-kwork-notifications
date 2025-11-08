@@ -37,10 +37,9 @@ async def monitor_kwork():
                             unread_count += dialog.unread_count or 0
                         if unread_count != credentials.last_unread_count:
                             if credentials.last_unread_count < unread_count:
-                                new_count = unread_count - credentials.last_unread_count
                                 await services.bot_service.bot.send_message(
                                     chat_id=(await credentials.user).tg_id,
-                                    text=f'У вас <a href="https://kwork.ru/inbox">{pluralize_messages(new_count)}</a>.',
+                                    text=f'У вас <a href="https://kwork.ru/inbox">{pluralize_messages(unread_count)}</a>.',
                                 )
                             credentials.last_unread_count = unread_count
                             await credentials.save()
