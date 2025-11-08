@@ -1,0 +1,26 @@
+[project]
+name = "tg-kwork-notifications"
+version = "0.1.0"
+description = "when a new kwork message arrives, sends notification in telegram dms"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "aiogram>=2.25.2",
+    "asyncpg>=0.30.0",
+    "dotenv>=0.9.9",
+    "fastapi>=0.121.0",
+    "httptools>=0.7.1",
+    "kwork",
+    "loguru>=0.7.3",
+    "pydantic<2.0",
+    "tortoise-orm>=0.25.1",
+    "uvicorn>=0.38.0",
+]
+
+[tool.uv.sources.kwork]
+git = "https://github.com/kesha1225/pykwork"
+
+[tool.aerich]
+tortoise_orm = "src.KworkNotifications.core.config.database_config"
+location = "./migrations"
+src_folder = "./."
