@@ -1,4 +1,4 @@
-t.me/kwork_message_notifications_bot
+https://t.me/kwork_message_notifications_bot
 
 ## License
 
